@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
+
+	"github.com/itpourya/beshkan/internal/notification"
 )
 
 func ChangeCurrentDnsServer(dnsAddrs string) error {
@@ -28,6 +30,7 @@ func ChangeCurrentDnsServer(dnsAddrs string) error {
     }
 
     fmt.Println("✅ DNS CHANGED TO", dnsAddrs)
+		notification.SendNotification("Beshkan", "Dns changed to "+dnsAddrs)
 		return nil
 }
 
